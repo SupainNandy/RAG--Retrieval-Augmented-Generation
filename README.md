@@ -25,6 +25,14 @@
   - [What is a Vector Database?](#what-is-a-vector-database)
 - [Popular Embedding Models](#popular-embedding-models)
 - [Consistency is Key!](#consistency-is-key)
+- [Essential Libraries for Building RAG](#essential-libraries-for-building-rag)
+  - [Installation Command](#installation-command)
+  - [1. langchain](#1-langchain)
+  - [2. langchain-community](#2-langchain-community)
+  - [3. langchain-text-splitters](#3-langchain-text-splitters)
+  - [4. langchain-openai](#4-langchain-openai)
+  - [5. langchain-chroma](#5-langchain-chroma)
+  - [6. python-dotenv](#6-python-dotenv)
 
 ---
 
@@ -39,7 +47,7 @@ Imagine you have a super smart robot friend named **LLM**.
 2. **A (Augmented - Add it):** The librarian gives those exact pages to the robot along with your question.
 3. **G (Generation - Answer it):** The robot reads those few pages and gives you the perfect answer in simple words.
 
-**Think of it like an Open-Book Exam!** Instead of memorizing every book in the world, the robot just flips to the right page when you ask.
+**Think of it like an Open-Book Exam!** Instead of memorizing every single book in the world, the robot just flips to the right page when you ask.
 
 ---
 
@@ -85,6 +93,8 @@ Before we can search anything, we need to organize our documents neatly in our l
 2. **Chunk:** Chop big documents into small, bite-sized paragraphs.
 3. **Embed:** Convert each paragraph into numbers (vectors) so the computer understands their meaning.
 4. **Store:** Save them in a special database called a **Vector Database**.
+
+> 📖 **Deep Dive:** Want to understand every single step and package of our code? Check out the [Ingestion Pipeline Guide](INGESTION_README.md)!
 
 ---
 
@@ -174,3 +184,108 @@ When working with embeddings, you must always use the **exact same model** for s
 - **Why?** Each model creates its own unique number map.
 - If you use Model A to turn your documents into numbers, you **must** also use Model A when turning the user's question into numbers.
 - If you mix two different models, their maps will not match, the numbers will point to the wrong places, and the system will give you the wrong answer!
+
+---
+
+## Essential Libraries for Building RAG
+
+To build our RAG system in Python, we use a team of special tools. Here is what each tool does in simple words:
+
+### Installation Command
+
+Run this command inside your terminal:
+
+```bash
+pip install langchain langchain-community langchain-text-splitters langchain-openai langchain-chroma python-dotenv
+```
+
+---
+
+### 1. langchain
+- **What it is:** The Master Conductor (Connecting everything together).
+- **Explain Like I'm 5:** Imagine you have toy train tracks. The tracks connect the engine, the wagons, and the station so they run smoothly together. `langchain` is the track that connects your questions, your document searcher, and the AI robot so they work together as one happy team.
+- **Simple Example:**
+  ```python
+  from langchain_core.prompts import PromptTemplate
+
+  # Helps frame the question and pass it to the AI
+  prompt = PromptTemplate.from_template("Answer based on: {context}\nQuestion: {question}")
+  ```
+
+---
+
+### 2. langchain-community
+- **What it is:** The Universal Tool Bag (Loaders and Integrations).
+- **Explain Like I'm 5:** If your robot wants to read a story from a PDF, a Word file, a website, or Wikipedia, it needs different pairs of reading glasses. `langchain-community` gives your robot glasses for almost any file format in the world!
+- **Simple Example:**
+  ```python
+  from langchain_community.document_loaders import TextLoader, PyPDFLoader
+
+  # Reads a text file or PDF from your computer
+  loader = TextLoader("story.txt")
+  documents = loader.load()
+  ```
+
+---
+
+### 3. langchain-text-splitters
+- **What it is:** The Document Scissors (Smart Chunking).
+- **Explain Like I'm 5:** If you are given a giant sandwich, you cannot eat it in one whole bite. You cut it into small, neat slices. If a book has 200 pages, this library cuts the text into bite-sized paragraphs so the AI never gets full or confused.
+- **Simple Example:**
+  ```python
+  from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+  # Cuts long documents into small pieces of 500 characters
+  splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+  chunks = splitter.split_documents(documents)
+  ```
+
+---
+
+### 4. langchain-openai
+- **What it is:** The AI Brain and Translator (OpenAI Models).
+- **Explain Like I'm 5:** This is a direct telephone line to OpenAI's smartest robots (like GPT-4o). It does two big jobs: it turns text into number lists (embeddings), and it reads the answers back to you in plain English.
+- **Simple Example:**
+  ```python
+  from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+
+  # Turns text into number fingerprints
+  embedding_model = OpenAIEmbeddings(model="text-embedding-3-large")
+
+  # Answers questions
+  llm = ChatOpenAI(model="gpt-4o")
+  ```
+
+---
+
+### 5. langchain-chroma
+- **What it is:** The Smart Toy Organizer (Chroma Vector Database).
+- **Explain Like I'm 5:** A magical toy cabinet right inside your computer. When you give Chroma cards with number fingerprints, it organizes them by similarity. When you ask a question, Chroma grabs the exact matching card in a split second!
+- **Simple Example:**
+  ```python
+  from langchain_chroma import Chroma
+
+  # Saves chunked paragraphs and their embeddings into Chroma
+  vector_db = Chroma.from_documents(documents=chunks, embedding=embedding_model)
+
+  # Finds the 2 closest matches to your question
+  results = vector_db.similarity_search("What is the holiday policy?", k=2)
+  ```
+
+---
+
+### 6. python-dotenv
+- **What it is:** The Secret Pocket (Environment Key Manager).
+- **Explain Like I'm 5:** You never write your house keys or secret passwords on the front of your shirt for strangers to copy. You keep them safe inside a hidden pocket called `.env`. `python-dotenv` quietly reads your secret key into Python without showing it in your code.
+- **Simple Example:**
+  Create a file called `.env`:
+  ```text
+  OPENAI_API_KEY=your_secret_api_key_here
+  ```
+  Load it safely in Python:
+  ```python
+  from dotenv import load_dotenv
+
+  # Loads all secret keys from the .env file
+  load_dotenv()
+  ```

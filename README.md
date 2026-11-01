@@ -108,6 +108,8 @@ When you ask a question, this pipeline springs into action to find the answer!
 3. **Combine (Augment):** It puts your question and those relevant paragraphs together into one neat prompt.
 4. **Answer (Generate):** The LLM reads the paragraphs and generates a clear, accurate answer!
 
+> 🔍 **Deep Dive:** Want to understand every line of code, math concept, and parameter in our retrieval script? Check out the [Retrieval Pipeline Guide](RETRIEVAL_README.md)!
+
 ---
 
 ## Why is RAG so Great?

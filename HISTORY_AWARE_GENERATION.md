@@ -22,6 +22,14 @@ and rewrites the follow-up as a clearer search question, such as **"How many
 planets are in the solar system?"** It then searches your document collection
 with that clearer question.
 
+![A follow-up question is rewritten using earlier conversation before document search](images/history-aware-retrieval-example.png)
+
+Without chat history, words like "it" or "their" can be unclear to the document
+search. With history, the system can replace them with the topic from the
+earlier messages.
+
+![Example of a follow-up question that is unclear without conversation history](images/history-aware-no-context-example.png)
+
 ## The whole journey
 
 ```text

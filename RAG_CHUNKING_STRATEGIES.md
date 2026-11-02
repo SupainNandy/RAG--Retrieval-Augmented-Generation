@@ -13,7 +13,7 @@ smaller pieces are called **chunks**.
 The computer searches the chunks, finds the ones that seem useful, and gives
 them to the language model (LLM) so it can answer your question.
 
-![RAG ingestion pipeline: loading, chunking, embedding, and storage](images/chunking/image-2.png)
+![RAG ingestion pipeline: loading, chunking, embedding, and storage](images/chunking-ingestion-pipeline.png)
 
 Chunking is part of the **ingestion pipeline**:
 
@@ -42,9 +42,9 @@ Chunking also has to avoid making pieces that are unhelpful:
 - **No document structure:** a heading, table, or code block may lose its
   relationship to nearby text.
 
-![Problems that can happen when text is split at fixed character counts](images/chunking/image-3.png)
+![Problems that can happen when text is split at fixed character counts](images/chunking-fixed-split-problem.png)
 
-![Why chunk size and document structure affect retrieval and answers](images/chunking/image-4.png)
+![Why chunk size and document structure affect retrieval and answers](images/chunking-quality-factors.png)
 
 ### A small example
 
@@ -80,11 +80,11 @@ The diagrams below introduce five ways to decide where one chunk ends and the
 next begins. They are different tools for different kinds of documents; there
 is no one strategy that is best for every project.
 
-![Overview of fixed-character and recursive character splitting](images/chunking/image-6.png)
+![Overview of fixed-character and recursive character splitting](images/chunking-character-recursive.png)
 
-![Document-specific and semantic splitting](images/chunking/image-7.png)
+![Document-specific and semantic splitting](images/chunking-document-semantic.png)
 
-![Agentic, LLM-assisted splitting](images/chunking/image-8.png)
+![Agentic, LLM-assisted splitting](images/chunking-agentic.png)
 
 ### Strategy 1: Character splitting
 

@@ -36,8 +36,10 @@ db = Chroma(
     collection_metadata={"hnsw:space": "cosine"}
 )
 
-# 4. Define the user query
-query = "what are the main differenece between artificial intelligence and machine learning"
+# 4. Get the user's query
+query = input("Enter your question: ").strip()
+if not query:
+    raise ValueError("Question cannot be empty.")
 
 # 5. Create the retriever with cosine similarity score threshold
 retriever = db.as_retriever(
@@ -57,27 +59,28 @@ print(f"USER QUERY: {query}")
 print("=" * 60)
 print(f"Total Relevant Documents Retrieved: {len(relevant_docs)}\n")
 
-if not relevant_docs:
-    print("No relevant documents found meeting the score threshold.")
-    exit()
-
-# Display the retrieved chunks and their sources
-for i, doc in enumerate(relevant_docs, 1):
-    source = doc.metadata.get("source", "Unknown")
-    print(f"--- [Document {i}] Source: {source} ---")
-    print(doc.page_content.strip())
-    print("-" * 60 + "\n")
+if relevant_docs:
+    # Display the retrieved chunks and their sources
+    for i, doc in enumerate(relevant_docs, 1):
+        source = doc.metadata.get("source", "Unknown")
+        print(f"--- [Document {i}] Source: {source} ---")
+        print(doc.page_content.strip())
+        print("-" * 60 + "\n")
+else:
+    print("No relevant documents found. The LLM will answer using its general knowledge.")
 
 # 7. Prepare the context text by combining all retrieved chunks
 context = "\n\n---\n\n".join([doc.page_content for doc in relevant_docs])
 
-# 8. Create the prompt template instructing the LLM to use the context
+# 8. Create the prompt template to prefer document context and fall back to general knowledge
 prompt = ChatPromptTemplate.from_messages([
     (
         "system",
-        "You are an expert AI assistant. Answer the user's question using ONLY the "
-        "provided context below. If the context does not contain the answer, say that "
-        "the provided documents do not have that information. Be clear, accurate, and concise.\n\n"
+        "You are a helpful AI assistant. Use the provided context when it contains "
+        "information relevant to the user's question. If the context is empty or does "
+        "not contain the answer, answer using your general knowledge instead. Respond "
+        "naturally to greetings and casual conversation, and be clear and honest if "
+        "you are unsure.\n\n"
         "Context:\n{context}"
     ),
     ("human", "{question}")

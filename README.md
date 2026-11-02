@@ -8,6 +8,22 @@
 
 ---
 
+## 📚 Complete Learning Roadmap (Read in Sequence: 1 ➡️ 7)
+
+All guides in this repository are numbered so you can follow them step-by-step:
+
+| # | Guide Document | Topic Covered | Companion Code |
+| :-: | :--- | :--- | :--- |
+| **1** | [1_README.md](1_README.md) | **RAG Foundations & Architecture (ELI5)** | - |
+| **2** | [2_INGESTION_README.md](2_INGESTION_README.md) | **Step 1: Document Ingestion Pipeline** | [`1_ingestion_pipeline.py`](1_ingestion_pipeline.py) |
+| **3** | [3_RETRIEVAL_README.md](3_RETRIEVAL_README.md) | **Step 2 & 3: Retrieval & Generation Pipeline** | [`2_retrival_pipeline.py`](2_retrival_pipeline.py), [`3_retrival_pipeline.py`](3_retrival_pipeline.py) |
+| **4** | [4_COSINE_SIMILARITY.md](4_COSINE_SIMILARITY.md) | **Math Deep Dive: Cosine Similarity & Vectors** | Used in Vector Search |
+| **5** | [5_HISTORY_AWARE_GENERATION.md](5_HISTORY_AWARE_GENERATION.md) | **Step 4: History-Aware Multi-Turn RAG** | [`4_history_aware_generation.py`](4_history_aware_generation.py) |
+| **6** | [6_RAG_CHUNKING_STRATEGIES.md](6_RAG_CHUNKING_STRATEGIES.md) | **All Chunking Strategies Compared** | Ingestion & Chunking |
+| **7** | [7_CHARECTER_TEXT_SPLITTER.md](7_CHARECTER_TEXT_SPLITTER.md) | **CharacterTextSplitter Mechanics & Slides** | [`5_charecter_textSplitter.py`](5_charecter_textSplitter.py) |
+
+---
+
 ## Table of Contents
 - [What is RAG? (Explain Like I'm 5)](#what-is-rag-explain-like-im-5)
 - [Real-World Example](#real-world-example)
@@ -94,7 +110,7 @@ Before we can search anything, we need to organize our documents neatly in our l
 3. **Embed:** Convert each paragraph into numbers (vectors) so the computer understands their meaning.
 4. **Store:** Save them in a special database called a **Vector Database**.
 
-> 📖 **Deep Dive:** Want to understand every single step and package of our code? Check out the [Ingestion Pipeline Guide](INGESTION_README.md)!
+> 📖 **Deep Dive:** Want to understand every single step and package of our code? Check out the [Ingestion Pipeline Guide](2_INGESTION_README.md)!
 
 ---
 
@@ -108,7 +124,7 @@ When you ask a question, this pipeline springs into action to find the answer!
 3. **Combine (Augment):** It puts your question and those relevant paragraphs together into one neat prompt.
 4. **Answer (Generate):** The LLM reads the paragraphs and generates a clear, accurate answer!
 
-> 🔍 **Deep Dive:** Want to understand every line of code, math concept, and parameter in our retrieval script? Check out the [Retrieval Pipeline Guide](RETRIEVAL_README.md)!
+> 🔍 **Deep Dive:** Want to understand every line of code, math concept, and parameter in our retrieval script? Check out the [Retrieval Pipeline Guide](3_RETRIEVAL_README.md)!
 
 ---
 

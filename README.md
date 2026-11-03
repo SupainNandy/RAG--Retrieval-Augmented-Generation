@@ -8,7 +8,7 @@
 
 ---
 
-## 📚 Complete Learning Roadmap (Read in Sequence: 1 ➡️ 7)
+## 📚 Complete Learning Roadmap (Read in Sequence: 1 ➡️ 8)
 
 All guides in this repository are numbered so you can follow them step-by-step:
 
@@ -19,8 +19,9 @@ All guides in this repository are numbered so you can follow them step-by-step:
 | **3** | [3_RETRIEVAL_README.md](3_RETRIEVAL_README.md) | **Step 2 & 3: Retrieval & Generation Pipeline** | [`2_retrival_pipeline.py`](2_retrival_pipeline.py), [`3_retrival_pipeline.py`](3_retrival_pipeline.py) |
 | **4** | [4_COSINE_SIMILARITY.md](4_COSINE_SIMILARITY.md) | **Math Deep Dive: Cosine Similarity & Vectors** | Used in Vector Search |
 | **5** | [5_HISTORY_AWARE_GENERATION.md](5_HISTORY_AWARE_GENERATION.md) | **Step 4: History-Aware Multi-Turn RAG** | [`4_history_aware_generation.py`](4_history_aware_generation.py) |
-| **6** | [6_RAG_CHUNKING_STRATEGIES.md](6_RAG_CHUNKING_STRATEGIES.md) | **All Chunking Strategies Compared** | Ingestion & Chunking |
+| **6** | [6_RAG_CHUNKING_STRATEGIES.md](6_RAG_CHUNKING_STRATEGIES.md) | **All Chunking Strategies Compared** | [`6_agentic_chunking.py`](6_agentic_chunking.py), [Agentic Chunking Guide](6_AGENTIC_CHUNKING.md) |
 | **7** | [7_CHARECTER_TEXT_SPLITTER.md](7_CHARECTER_TEXT_SPLITTER.md) | **CharacterTextSplitter Mechanics & Slides** | [`5_charecter_textSplitter.py`](5_charecter_textSplitter.py) |
+| **8** | [8_RECURSIVE_STRUCTURE_AWARE_CHUNKING.md](8_RECURSIVE_STRUCTURE_AWARE_CHUNKING.md) | **Recursive, Structure-Aware Chunking** | [`8_recursive_structure_aware_chunking.py`](8_recursive_structure_aware_chunking.py) |
 
 ---
 

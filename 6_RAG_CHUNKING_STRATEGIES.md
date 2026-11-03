@@ -182,6 +182,10 @@ should be split.
 This can help with complicated material, but the model's choices can vary and
 need checking.
 
+For a runnable example that asks an LLM to group related paragraphs and
+validates its result, see the [Agentic Chunking guide](./6_AGENTIC_CHUNKING.md)
+and [`6_agentic_chunking.py`](./6_agentic_chunking.py).
+
 **Good points**
 
 - Can consider complex structure and relationships.
@@ -251,6 +255,9 @@ made with the new rules. The existing database does not automatically change
 when the Python code changes.
 
 ## 7. A practical way to improve chunking
+
+Try the [recursive, structure-aware splitter example](./8_RECURSIVE_STRUCTURE_AWARE_CHUNKING.md)
+when you want a practical starting point that respects headings and paragraphs.
 
 1. **Start simple.** Use a splitter that matches the document format.
 2. **Write test questions.** Include direct questions and follow-ups.

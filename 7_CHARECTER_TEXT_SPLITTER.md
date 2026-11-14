@@ -19,7 +19,7 @@
 8. [Hands-On Python Code: Run It Yourself](#8-hands-on-python-code-run-it-yourself)
 9. [Quick Memory Card: Summary](#9-quick-memory-card-summary)
 
----
+--- 
 
 ## 1. The 5-Year-Old Story: The Giant Chocolate Bar & The Lunchboxes
 

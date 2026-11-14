@@ -6,7 +6,7 @@
 >
 > This guide explains the simplest chunker in LangChain: **`CharacterTextSplitter`** — how it works, its hidden secrets, its big flaw, and how the pictures in this folder explain the whole story!
 
----
+--- 
 
 ## Table of Contents
 1. [The 5-Year-Old Story: The Giant Chocolate Bar & The Lunchboxes](#1-the-5-year-old-story-the-giant-chocolate-bar--the-lunchboxes)

@@ -15,7 +15,7 @@
    - [Step 2: Document Chunking (`split_docs`)](#step-2-document-chunking-split_docs)
    - [Step 3: Embedding & Vector Storage (`create_vector_store`)](#step-3-embedding--vector-storage-create_vector_store)
    - [Step 4: The Conductor (`main` function)](#step-4-the-conductor-main-function)
-4. [Package Encyclopedia: Every Library Explained](#4-package-encyclopedia-every-library-explained)
+4. [Package Encyclopedia: Every Library Explained](#4-package-encyclopedia-every-library-explained)     
 5. [Why Did We Use Hugging Face?](#5-why-did-we-use-hugging-face)
 6. [Local Vector DB vs Cloud Vector DB](#6-local-vector-db-vs-cloud-vector-db)
    - [Why Did We NOT Use a Cloud Vector Database?](#why-did-we-not-use-a-cloud-vector-database)

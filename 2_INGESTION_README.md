@@ -1,6 +1,6 @@
 # The Ultimate Guide to the Ingestion Pipeline 🚀
 
-> **Explained so simply that even a 5-year-old can understand it!**
+> **Explained so simply that even a 5-year-old can understand it!**     
 > 
 > This guide walks you through every single step, package, design decision, and concept behind [ingestion_pipeline.py](file:///home/supain/SupainNandy/RAG--Retrieval-Augmented-Generation/ingestion_pipeline.py).
 

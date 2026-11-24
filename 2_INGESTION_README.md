@@ -132,7 +132,7 @@ def load_documents(docs_path="docs"):
 
 ---
 
-### Step 2: Document Chunking (`split_docs`)
+### Step 2: Document Chunking (`split_docs`) 
 
 ```python
 def split_docs(documents, chunk_size=800, chunk_overlap=0):
